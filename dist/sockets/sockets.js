@@ -7,9 +7,10 @@ const desconectar = (cliente) => {
     });
 };
 exports.desconectar = desconectar;
-const mensaje = (cliente) => {
+const mensaje = (cliente, io) => {
     cliente.on('mensaje', (payload) => {
         console.log('Mensaje recibido', payload);
+        io.emit('mensaje-nuevo', payload);
     });
 };
 exports.mensaje = mensaje;
