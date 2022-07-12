@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import bodyParser from 'body-parser';
+
 
 export const router = Router();
 
@@ -15,7 +15,7 @@ router.get('/mensajes', (req: Request, res: Response) =>{
 
     res.json({
         ok:true,
-        cuerpo:'POST LISTO',
+        cuerpo,
         de
     });
  });

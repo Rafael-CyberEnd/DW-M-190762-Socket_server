@@ -14,7 +14,7 @@ exports.router.post('/mensajes', (req, res) => {
     const de = req.body.de;
     res.json({
         ok: true,
-        cuerpo: 'POST LISTO',
+        cuerpo,
         de
     });
 });

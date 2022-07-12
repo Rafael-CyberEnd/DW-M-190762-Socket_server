@@ -52,6 +52,7 @@ class Server {
             socket.mensaje(cliente, this.io);
             //Deconectar 
             socket.desconectar(cliente);
+            socket.configurarUsuario(cliente, this.io);
         });
     }
     star(callback) {
