@@ -47,12 +47,16 @@ class Server {
      }*/
     escucharSockets() {
         this.io.on('connection', (cliente) => {
-            console.log('cliente conectado');
+            //console.log('cliente conectado');
+            //conectar cliente
+            socket.conectarCliente(cliente);
+            //configurar usuario
+            socket.configurarUsuario(cliente, this.io);
+            console.log(cliente.id);
             //mensaje
             socket.mensaje(cliente, this.io);
             //Deconectar 
             socket.desconectar(cliente);
-            socket.configurarUsuario(cliente, this.io);
         });
     }
     star(callback) {
