@@ -1,4 +1,5 @@
 import { Router, Request, Response } from "express";
+import Server from '../classes/server';
 
 
 export const router = Router();
@@ -17,6 +18,27 @@ router.get('/mensajes', (req: Request, res: Response) =>{
         ok:true,
         cuerpo,
         de
+    });
+ });
+
+ router.post('/mensajes/:para', (req:Request, res:Response)=>{
+    const cuerpo = req.body.cuerpo;
+    const de = req.body.de;
+    const para = req.params.para;
+    
+
+    const payload = {
+        de,
+        cuerpo
+    }
+    const server = Server.instance;
+    server.io.in(para).emit('memsaje-privado')
+
+    res.json({
+        ok:true,
+        cuerpo,
+        de,
+        para
     });
  });
  export default router;
